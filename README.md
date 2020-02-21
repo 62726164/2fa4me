@@ -1,5 +1,5 @@
 # 2fa4me
-Automate Two Factor with Twilio and DTMF Tones
+Automate Two Factor Phone Calls with Twilio and DTMF Tones
 
 ## Description
 
