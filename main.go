@@ -13,11 +13,6 @@ type Response struct {
 	Play Play `xml:"Play"`
 }
 
-func main() {
-	http.HandleFunc("/mfa", mfa)
-	http.ListenAndServe(":3000", nil)
-}
-
 func mfa(w http.ResponseWriter, r *http.Request) {
 	// w means wait for 0.5 seconds (ww is 1 second).
 	// If you wanted to wait 2 seconds and then press 9, change this to "wwww9".
@@ -31,4 +26,10 @@ func mfa(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/xml")
 	w.Write(x)
+}
+
+func main() {
+	// Todo: Make this a server struct and set timeouts
+	http.HandleFunc("/mfa", mfa)
+	http.ListenAndServe(":3000", nil)
 }
